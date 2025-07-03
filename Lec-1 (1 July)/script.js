@@ -84,7 +84,7 @@ function grand(){
 }
 grand();
 
-// var is function-scoped By the time the setTimeout callbacks run (after 2 seconds), the loop has already finished, and i is now 6.
+// var is function-scoped By the time the setTimeout cbs run (after 2 seconds), the loop has already finished, and i is now 6.
 for(var i = 0; i <= 5; i++){
     setTimeout(() => {
         console.log(i);
