@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Blog Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <h2>Welcome! To my blog platform!! </h2>
+    <div>
+      <input type="text" id="search" placeholder="Search blog by title">
+    </div>
+  </nav>
+
+  <section>
+    <form id="blogForm">
+      <input type="text" placeholder="TITLE" id="title" required />
+      <textarea placeholder="ADD DESCRIPTION FOR YOUR BLOG" id="description" required></textarea>
+      <input type="url" placeholder="ENTER YOUR URL" id="url" required />
+      <input type="date" id="DATE" required />
+      <button type="submit">ADD BLOG</button>
+    </form>
+
+    <div id="filters">
+      <select id="sortByDate">
+        <option value="">SORT BY DATE</option>
+        <option value="asc">Old to New </option>
+        <option value="desc">New to Old</option>
+      </select>
+    </div>
+
+    <ul id="blogList"></ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
