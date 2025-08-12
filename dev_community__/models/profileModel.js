@@ -18,12 +18,3 @@ const ProfileSchema = new Schema({
 })
 
 module.exports = mongoose.model("Profile",ProfileSchema);
-
-//User - Bio
-// Skills - []
-// Github 
-//Linkedin
-//Coding Platform
-// Location
-//Certifications
-//Experience

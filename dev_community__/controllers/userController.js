@@ -29,6 +29,7 @@ const registerUser = async (req, res) => {
     });
 
     await newUser.save();
+  
 
     const tokenGen = generateToken(newUser)
 
@@ -37,7 +38,6 @@ const registerUser = async (req, res) => {
       data: {
         firstName,
         emailId,
-        hashedPassword,
         tokenGen
       },
     });
@@ -77,6 +77,7 @@ const loginUser = async (req, res) => {
       message: "User Logged In Successfully",
       userName: userExists.firstName,
       emailId: userExists.emailId,
+      tokenGen: generateToken(userExists),
     });
   } catch (err) {
     return res.status(500).json({ error: err.message });

@@ -3,10 +3,11 @@ const User = require("../models/userModel")
 
 
 const authMiddleware = async (req,res,next)=>{
+    
     const { authorization} = req.headers; 
     const token = authorization.split(" ")[1];
 
-    const user = await jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const user = jwt.verify(token, process.env.JWT_SECRET_KEY);
     // console.log(user.userId);
 
     if(!user){

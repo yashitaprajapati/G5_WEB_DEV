@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/", getProfileDetails)
 router.post("/",authMiddleware,addProfileDetails)
 
-
+router.put("/", authMiddleware, updateProfileDetails);
 
 
 

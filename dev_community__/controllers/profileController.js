@@ -47,7 +47,7 @@ const addProfileDetails = async (req,res) => {
     
     const userProfile = await Profile.find({userId:_id});
 
-    console.log("PROFILE DATA:",userProfile);
+    // console.log("PROFILE DATA:",userProfile);
     if (userProfile.length> 0){
         return res.status(400).json({
             message: "Profile Already exists"
@@ -76,35 +76,35 @@ const addProfileDetails = async (req,res) => {
 
 }
 
-// const updateProfileDetails = async (req, res) => {
-//     try {
-//         const { _id } = req.user[0]; // userId from logged-in user
+const updateProfileDetails = async (req, res) => {
+    try {
+        const { _id } = req.user[0]; // userId from logged-in user
 
-//         // Check if profile exists
-//         const existingProfile = await Profile.findOne({ userId: _id });
-//         if (!existingProfile) {
-//             return res.status(404).json({
-//                 message: "Profile not found. Please create one first."
-//             });
-//         }
+        // Check if profile exists
+        const existingProfile = await Profile.findOne({ userId: _id });
+        if (!existingProfile) {
+            return res.status(404).json({
+                message: "Profile not found. Please create one first."
+            });
+        }
 
-//         // Update fields (only those provided in req.body)
-//         const updatedProfile = await Profile.findOneAndUpdate(
-//             { userId: _id },
-//             { $set: req.body },
-//             { new: true, runValidators: true } // returns updated document & runs schema validators
-//         );
+        // Update fields (only those provided in req.body)
+        const updatedProfile = await Profile.findOneAndUpdate(
+            { userId: _id },
+            { $set: req.body },
+            { new: true, runValidators: true }
+        );
 
-//         return res.status(200).json({
-//             message: "Profile updated successfully",
-//             data: updatedProfile
-//         });
+        return res.status(200).json({
+            message: "Profile updated successfully",
+            data: updatedProfile
+        });
 
-//     } catch (err) {
-//         res.status(500).json({
-//             error: err.message
-//         });
-//     }
-// };
+    } catch (err) {
+        res.status(500).json({
+            error: err.message
+        });
+    }
+};
 
-module.exports = { getProfileDetails,addProfileDetails};
+module.exports = { getProfileDetails,addProfileDetails,updateProfileDetails};
